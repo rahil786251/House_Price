@@ -38,24 +38,6 @@ It includes:
 
 ---
 
-## 📁 Folder Structure
-
-```
-house-price-predictor/
-│
-├── app.py                    # Flask web app
-├── train.py                  # Model training script
-├── sample_generate_data.py   # Synthetic data generator
-├── data/
-│   └── housing.csv           # Dataset
-├── models/
-│   └── best_model.joblib     # Trained model
-├── templates/
-│   └── index.html            # Frontend UI
-├── README.md                 # Project documentation
-└── requirements.txt          # Python dependencies
-```
-
 ## 🧪 Sample Input Fields
 
 | Feature         | Example Input |
