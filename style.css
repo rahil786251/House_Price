@@ -1,0 +1,78 @@
+/* General page styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 40px auto;
+    max-width: 720px;
+    background: #f4f6f8;
+    color: #333;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #2b8cdb;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Input fields */
+.field {
+    margin-bottom: 16px;
+}
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+input, select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: border 0.3s;
+}
+input:focus, select:focus {
+    border-color: #2b8cdb;
+    outline: none;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #2b8cdb;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn:hover {
+    background: #1c6fb8;
+}
+
+/* Result box */
+.result {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 10px;
+    background: #e6f0ff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Error box */
+.result.error {
+    background: #ffe6e6;
+    color: #b00000;
+}

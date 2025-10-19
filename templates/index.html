@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>House Price Predictor</title>
+  <style>
+    /* Full page background with transparent house image */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #f0f2f5 url('house-bg.png') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Frosted glass container */
+    .container {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 30px 40px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2b8;
+    }
+
+    .field {
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    input, select {
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    input:focus {
+      border-color: #2b8;
+      outline: none;
+      box-shadow: 0 0 5px rgba(43, 136, 0, 0.5);
+    }
+
+    .btn {
+      padding: 10px 16px;
+      background: #2b8;
+      border: none;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #237a3b;
+    }
+
+    .result {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .prediction {
+      background: #e6f7ff;
+      color: #0050b3;
+    }
+
+    .error {
+      background: #fff1f0;
+      color: #a8071a;
+    }
+
+    /* Placeholder hints */
+    input::placeholder {
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>House Price Predictor</h1>
+    <form method="post" action="/predict">
+      <div class="field">
+        <label>Area (sqft)</label>
+        <input name="Area" placeholder="e.g. 500-5000" required />
+      </div>
+      <div class="field">
+        <label>Bedrooms</label>
+        <input name="Bedrooms" placeholder="e.g. 1-10" required />
+      </div>
+      <div class="field">
+        <label>Bathrooms</label>
+        <input name="Bathrooms" placeholder="e.g. 1-10" required />
+      </div>
+      <div class="field">
+        <label>Garage</label>
+        <input name="Garage" placeholder="e.g. 0-5" required />
+      </div>
+      <div class="field">
+        <label>Grade</label>
+        <input name="Grade" placeholder="e.g. 1-10" required />
+      </div>
+      <div class="field">
+        <label>Lot Area (sqft)</label>
+        <input name="LotArea" placeholder="e.g. 1000-10000" required />
+      </div>
+      <div class="field">
+        <label>Location</label>
+        <select name="Location" required>
+          <option value="">Select Location</option>
+          <option value="Downtown">Downtown</option>
+          <option value="Suburb">Suburb</option>
+          <option value="Countryside">Countryside</option>
+          <option value="Beachfront">Beachfront</option>
+        </select>
+      </div>
+
+      <button class="btn" type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result prediction">
+      Predicted Price: ₹ {{ prediction }}
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="result error">
+      Error: {{ error }}
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
